@@ -34,3 +34,8 @@ select Salary from Employee_payroll where StartDate between CAST('2020-04-19' as
 alter table Employee_Payroll add Gender varchar(1);
 UPDATE Employee_Payroll set Gender ='F';
 UPDATE Employee_Payroll set Gender ='M' where First_Name = 'Aditya' or First_Name ='Vishal';
+
+--UC7-Ability to find sum, average, min, max and number of male and female employees.
+Select SUM(Salary) As Sum_Of_Salary_ForFemale, AVG(Salary)As Avrage_Of_Female_Salary,MIN(Salary)As Minimum_Salary_From_Female,MAX(Salary)As Maximum_Salary,COUNT(Gender)As No_Of_Females from Employee_Payroll where Gender = 'F' GROUP BY Gender;
+
+Select SUM(Salary) As Sum_Of_Salary_ForMale, AVG(Salary)As Avrage_Of_Male_Salary,MIN(Salary)As Minimum_Salary_From_Male,MAX(Salary)As Maximum_Salary,COUNT(Gender)As No_Of_Males from Employee_Payroll where Gender = 'M' GROUP BY Gender;
