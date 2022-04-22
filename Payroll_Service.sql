@@ -21,10 +21,16 @@ insert into Employee_Payroll(First_Name,Last_Name,Salary,StartDate) values
 			('Vaishnavi','Sabale',17000,'2021-05-19'),
 			('Supriya','Kadam',22000,'2021-08-19');
 
---UC4-Ability_ToRetrive_AllThe_Employee_Payroll			
+--UC4-Ability_ToRetrive_AllThe_Employee_Payroll.		
 select * from Employee_Payroll;
 
 --UC5-Ability to retrieve salary data for a particular employee as well as all employees who have joined in a particular data range.
 select Salary from Employee_Payroll where First_Name = 'Vishal';
 
 select Salary from Employee_payroll where StartDate between CAST('2020-04-19' as date) and GETDATE();
+
+
+--UC6-Ability to add Gender to Employee Payroll Table.
+alter table Employee_Payroll add Gender varchar(1);
+UPDATE Employee_Payroll set Gender ='F';
+UPDATE Employee_Payroll set Gender ='M' where First_Name = 'Aditya' or First_Name ='Vishal';
