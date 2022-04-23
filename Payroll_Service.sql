@@ -56,3 +56,19 @@ insert into Employee_Information(Department,Phone_Number) values
 ('Sale',8303005482);
 
 select * from Employee_Information;
+
+
+--UC9-Ability to extend employee_payroll table to have Basic Pay,Deductions,Taxable Pay,Income Tax, Net Pay.
+alter table Employee_Payroll add Basic_Pay bigint;
+alter table Employee_Payroll add Deducations bigint;
+alter table Employee_Payroll add Taxable_Pay bigint;
+alter table Employee_Payroll add Income_Tax bigint;
+alter table Employee_Payroll add Net_Pay bigint;
+
+UPDATE Employee_Payroll set Basic_Pay=20000;
+UPDATE Employee_Payroll set Deducations = 2000;
+UPDATE Employee_Payroll set Taxable_Pay = 1000;
+UPDATE Employee_Payroll set Income_Tax = 200;
+UPDATE Employee_Payroll set Net_Pay = 18000;
+
+select * from Employee_Payroll;
