@@ -39,3 +39,20 @@ UPDATE Employee_Payroll set Gender ='M' where First_Name = 'Aditya' or First_Nam
 Select SUM(Salary) As Sum_Of_Salary_ForFemale, AVG(Salary)As Avrage_Of_Female_Salary,MIN(Salary)As Minimum_Salary_From_Female,MAX(Salary)As Maximum_Salary,COUNT(Gender)As No_Of_Females from Employee_Payroll where Gender = 'F' GROUP BY Gender;
 
 Select SUM(Salary) As Sum_Of_Salary_ForMale, AVG(Salary)As Avrage_Of_Male_Salary,MIN(Salary)As Minimum_Salary_From_Male,MAX(Salary)As Maximum_Salary,COUNT(Gender)As No_Of_Males from Employee_Payroll where Gender = 'M' GROUP BY Gender;
+
+
+--UC8-Ability to extend employee_payroll data to store employee information like employee phone, address and department.
+Create Table Employee_Information(
+Emp_Id int identity foreign key references Employee_Payroll(ID),
+Department varchar(50) not null,
+Address varchar(50) default'MAHARASTRA',
+Phone_Number bigint);
+
+insert into Employee_Information(Department,Phone_Number) values
+('HR',7218465445),
+('Manager',9834782454),
+('Executive',7378318454),
+('Asst.Manager',8809086453),
+('Sale',8303005482);
+
+select * from Employee_Information;
